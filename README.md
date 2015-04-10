@@ -14,6 +14,9 @@ This is [@edrex](https://twitter.com/edrex)'s fork of [mGSD](http://mgsd.tiddlys
   2. Add **mgsd** include.
 3. Using backstage, import the contents of upload/initial.html
 
+Additional tweaks needed:
+
+`<<setPrivacy defaultValue:private>>`
 ## Build
 
 ### Ruby
@@ -35,27 +38,27 @@ mGSD has a copy of the output of [MPTW]()'s build at `empties/empty.html`. If yo
 ### Let's fix mGSD on TiddlySpace
 
  - [x] Build with latest TiddlyWiki (2.8.1)
-  - [x] `brew install ruby18` (needed for r4tw.rb)
-  - [x] Reproduce empty.html from MPTW
+  - [x] Reproduce empty.html from MPTW https://github.com/simonbaird/MPTW/
  - [x] Unevaluated macro code in tiddlers created via [NewButtons](tiddlers/NewButtons.tiddler)
-   - Needed to add `config.evaluateMacroParameters = "full";`
- - [x] Upgrade mGSD
-   - [x] New empty.html
-     - [x] Upgrade MPTW   
-       - https://github.com/simonbaird/MPTW/
-       - http://classic.tiddlywiki.com/
- - [x] Broken plugins (fix in MPTW or mGSD?)
-   - MptwConfigPlugin
-   - QuickOpenTagPlugin
-   - TagglyTaggingPlugin
+   - Add `config.evaluateMacroParameters = "full";` 
+ - [x] Broken plugins (MptwConfigPlugin, QuickOpenTagPlugin, TagglyTaggingPlugin)
+    - Needed to extend hackery in build.rb to 2.8.x
+ - [x] initial.html (for importing)
+ - [x] DefaultTiddlers: GettingStarted
+   - Delete forbidden (even though in my public bag?)
+   - Fixed by adding DefaultTiddlers to initial.html
+ - [x] why is default privacy sometimes public?
+   - In one space, SystemSettings had options.chkPrivacyMode = false
+     
+## Still broken
 
-## Still so broken
+- [ ] why is refresh sometimes broken?
+  - Seems to happen when JS errors arise. Keep an eye out and fix them as they come up.
+- [ ] Changing states using mGSD UI doesn't trigger autosave
+- [ ] Add zzMgsdConfig to initial.html
 
-- [ ] Can import initial data from tiddlyspace URL?
-- [ ] New tiddlers are still saving to public bag. Why?
-- [ ] Settings to ensure private save and code eval
-  - [ ] Initial
-  - [ ] MgtdSettings
-- [ ] Stablize mgsd space and switch development to mgsd-head
-- Make it really easy to create a new mGSD in tiddlyspace
-  - 
+## Release tasks
+
+- [ ] Stabilize mgsd space and switch development to mgsd-head
+- [ ] Host initial.html somewhere and add instructions (maybe upload as binary file to another space?)
+- [ ] Make it really easy to create a new mGSD in tiddlyspace
