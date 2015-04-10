@@ -52,9 +52,13 @@ mGSD has a copy of the output of [MPTW]()'s build at `empties/empty.html`. If yo
      
 ## Still broken
 
-- [ ] why is refresh sometimes broken?
+- [x] why is refresh sometimes broken?
   - Seems to happen when JS errors arise. Keep an eye out and fix them as they come up.
 - [ ] Changing states using mGSD UI doesn't trigger autosave
+  - setTiddlerTag doesn't trigger autosave. I think this is by design.
+  - need to call autoSave on each UI action
+  - [ ] toggleTag macro
+    
 - [ ] Add zzMgsdConfig to initial.html
 
 ## Release tasks
